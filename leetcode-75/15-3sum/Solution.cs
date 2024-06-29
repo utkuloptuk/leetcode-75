@@ -5,14 +5,13 @@ namespace leetcode_75._15_3sum
     {
         public static int[][] ThreeSum(int[] inputArray)
         {
-            int left = 0;
             int length = inputArray.Length;
-            int right = length - 1;
-            int counter = 0;
-            int[][] resultList = new int[][] { };
+            List<int[]> resultList = new List<int[]> { };
             Array.Sort(inputArray);
             for (int i = 0; i < length; i++)
             {
+                int left = i+1;
+                int right = length - 1;
                 if (!i.Equals(0) && inputArray[i].Equals(inputArray[i - 1]))
                 {
                     left++;
@@ -29,17 +28,14 @@ namespace leetcode_75._15_3sum
                     else
                     {
                         var appValue = new int[] { firstVal, inputArray[left], inputArray[right] };
-                        resultList.Append(appValue);
-                        counter++;
-                        break;
+                        resultList.Add(appValue);
+                        left++;
+                        while (inputArray[left] == inputArray[left - 1] && left < right)
+                            left++;
                     }
                 }
-                left = 0;
-                length = inputArray.Length;
             }
-
-
-            return resultList;
+            return resultList.ToArray();
         }
     }
 }
