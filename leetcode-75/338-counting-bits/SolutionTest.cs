@@ -11,7 +11,7 @@ public class SolutionTest
         int request = 2;
         int[] response = {0, 1, 1};
         var result = Solution.CountBits(request);
-        Assert.AreEqual(response, result);
+        Assert.IsTrue(response.SequenceEqual(result));
     }
 
     [TestMethod]
@@ -20,6 +20,6 @@ public class SolutionTest
         int request = 5;
         int[] response = {0, 1, 1,2,1,2};
         var result = Solution.CountBits(request);
-        Assert.AreEqual(response, result);
+        Assert.IsTrue(response.SequenceEqual(result));
     }
 }
