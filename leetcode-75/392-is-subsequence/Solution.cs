@@ -10,29 +10,33 @@ namespace leetcode_75._392_is_subsequence
     {
         public static bool IsSubsequence(string s, string t)
         {
-            var sCharArray = s.ToCharArray().Distinct().ToArray();
-            var tChars= t.ToCharArray().Distinct().ToString();
-            int firstIndex = 0;
-            int SecondIndex = 0;
-            for (int i = 0; i < sCharArray.Count(); i++)
+            if (s == null || string.IsNullOrEmpty(s))
+                return true;
+            int index = 0;
+            StringBuilder sb = new StringBuilder();
+            for (int i = 0; i < t.Length; i++)
             {
-                if (t.Contains(sCharArray[i])
-                    &&s.Count(x=>x.Equals(sCharArray[i]))<=t.Count(x=>x.Equals(sCharArray[i])))
+                if (s[index] == t[i]&&index<s.Length)
                 {
-                    if (i == 0)
-                        continue;
-                    firstIndex = t.LastIndexOf(sCharArray[i - 1]);
-                    SecondIndex = t.LastIndexOf(sCharArray[i]);
-                    if (firstIndex > SecondIndex)
-                    {
-                        return false;
-                    }
-
+                    sb.Append(t[i].ToString());
+                    index++;
                 }
-                else
-                    return false;
+                if(index == s.Length)
+                    return sb.ToString() == s;
             }
-            return true;
+            return sb.ToString() == s;
+            // HashSet<char> set = new HashSet<char>();
+            // for (int i = 0; i < s.Length; i++)
+            // {
+            //     set.Add(s[i]);
+            // }
+            // for (int i = 0; i < t.Length; i++)
+            // {
+            //     if (set.Contains(t[i]))
+            //         set.Remove(t[i]);
+            // }
+            //
+            // return set.Count == 0;
         }
     }
 }
