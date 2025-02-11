@@ -7,6 +7,7 @@ namespace leetcode_75._392_is_subsequence
     {
         [TestMethod]
         [DataRow("abc","ahbgdc",true)]
+        [DataRow("b","abc",true)]
         [DataRow("axc","ahbgdc",false)]
         [DataRow("aaaaaa","bbaaaa",false)]
         [DataRow("ab","baab",true)]
