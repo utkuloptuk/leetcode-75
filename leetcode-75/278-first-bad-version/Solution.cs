@@ -13,7 +13,7 @@ public class Solution
           while (first <= last)
           {
                int middle = first + (last - first) / 2;
-               if (!IsBadVersion(middle))
+               if (/*!IsBadVersion(middle)*/true)
                {
                     first = middle + 1;
                }
