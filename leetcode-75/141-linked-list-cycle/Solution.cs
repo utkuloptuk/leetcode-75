@@ -1,8 +1,8 @@
 namespace leetcode_75._141_linked_list_cycle;
 
-public class Solution
+public  class Solution
 {
-    public bool HasCycle(ListNode head)
+    public  bool HasCycle(ListNode head)
     {
         var slowPointer = head;
         var fastPointer = head;
